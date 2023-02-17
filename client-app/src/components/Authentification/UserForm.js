@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { UserFormContent, UserFormTitle, UserFormWrapper } from './UserForm.styled';
-import { Login } from '../User/Login/Login';
-import { Registration } from '../User/Registration/Registration';
+import { Login } from '../Authentification/Login/Login';
+import { Registration } from '../Authentification/Registration/Registration';
 import { H2 } from '../shared/Headers/Headers.styled';
 import { alreadyLoggedText } from './Login/LoginMessages';
 import { Button } from '../shared/Button/Button';
@@ -35,7 +35,7 @@ export function UserForm() {
 
   return (
     <UserFormWrapper>
-      {logged === null ? (
+      {logged !== null ? (
         <Button type={textString} text={alreadyLoggedText} />
       ) : (
         renderUserFormContent()
