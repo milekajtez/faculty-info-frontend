@@ -39,12 +39,7 @@ export function Registration(props) {
       !emailValidate.isValid ||
       !passwordValidate.isValid ||
       !firstNameValidate.isValid ||
-      !lastNameValidate.isValid ||
-      usernameValidate.text === '' ||
-      emailValidate.text === '' ||
-      passwordValidate === '' ||
-      firstNameValidate.text === '' ||
-      lastNameValidate.text === ''
+      !lastNameValidate.isValid
     ) {
       toast(plaseInsertValidCredentials);
       return;
