@@ -20,12 +20,7 @@ export function Login(props) {
     setEmailValidate(validateEmail(email));
     setPasswordValidate(validatePassword(password));
 
-    if (
-      !emailValidate.isValid ||
-      !passwordValidate.isValid ||
-      emailValidate.text === '' ||
-      passwordValidate === ''
-    ) {
+    if (!emailValidate.isValid || !passwordValidate.isValid) {
       toast(plaseInsertValidCredentials);
       return;
     }
