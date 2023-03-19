@@ -1,5 +1,4 @@
 import {
-  fieldNotBeANumber,
   invalidEmailAddress,
   passwordMustBeAtLeast8Chars,
   passwordMustContainLowercase,
@@ -12,21 +11,6 @@ export const validValue = () => ({
   isValid: true,
   text: ''
 });
-
-export const validateUsername = (value) => {
-  if (value === '')
-    return {
-      isValid: false,
-      text: thisFieldIsRequired
-    };
-  if (!isNaN(value))
-    return {
-      isValid: false,
-      text: fieldNotBeANumber
-    };
-
-  return validValue();
-};
 
 export const validatePassword = (value) => {
   if (value.length < 8) return { isValid: false, text: passwordMustBeAtLeast8Chars };

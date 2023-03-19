@@ -4,6 +4,8 @@ export const ButtonElement = styled.button`
   background-color: orange;
   color: white;
   padding: 15px 80px;
+  font-weight: bold;
+  color: black;
   text-decoration: none;
   text-transform: uppercase;
   -webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
