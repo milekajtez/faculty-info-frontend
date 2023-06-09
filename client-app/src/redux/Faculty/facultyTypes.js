@@ -1,0 +1,1 @@
+export const LOAD_ALL_FACULTIES = 'LOAD_ALL_FACULTIES';

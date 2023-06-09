@@ -9,12 +9,14 @@ import {
   TableContent,
   TableBody
 } from './Table.styled';
+import { FacultyTable } from '../../Faculty/Faculties/FacultyTable';
+import { TableTypes } from './tableTypes';
 
 export function Table(props) {
-  const { columns } = props;
+  const { columns, items, type } = props;
 
-  return (
-    <TableWrapper>
+  const displayHeader = () => {
+    return (
       <TableHeader>
         <TableComponent>
           <TheadComponent>
@@ -26,26 +28,25 @@ export function Table(props) {
           </TheadComponent>
         </TableComponent>
       </TableHeader>
+    );
+  };
+
+  const displayBody = () => {
+    return (
       <TableContent>
         <TableComponent>
           <TableBody>
-            <TableRow>
-              <TableField>AAC</TableField>
-              <TableField>AUSTRALIAN COMPANY </TableField>
-              <TableField>$1.38</TableField>
-              <TableField>+2.01</TableField>
-              <TableField>-0.36%</TableField>
-            </TableRow>
-            <TableRow>
-              <TableField>AAD</TableField>
-              <TableField>AUSENCO</TableField>
-              <TableField>$2.38</TableField>
-              <TableField>-0.01</TableField>
-              <TableField>-1.36%</TableField>
-            </TableRow>
+            {type === TableTypes.ALL_FACULTIES ? <FacultyTable allFaculties={items} /> : null}
           </TableBody>
         </TableComponent>
       </TableContent>
+    );
+  };
+
+  return (
+    <TableWrapper>
+      {displayHeader()}
+      {displayBody()}
     </TableWrapper>
   );
 }
