@@ -23,7 +23,7 @@ export const TheadComponent = styled.thead`
 
 export const TableField = styled.th`
   padding: 20px 15px;
-  text-align: left;
+  text-align: center;
   font-weight: bold;
   font-size: 15px;
   color: black;

@@ -5,13 +5,13 @@ import {
   loginSessionUserRoleIsUnknown
 } from '../components/Authentification/Login/LoginMessages';
 import { faculitiesPath } from './routePaths';
-import { mainAdminTypeString, tokenString } from './strings';
+import { emptyString, mainAdminTypeString, tokenString } from './strings';
 
 export const checkSession = () => {
   var sessionObj = {
     logged: false,
-    userRole: '',
-    email: ''
+    userRole: emptyString,
+    email: emptyString
   };
 
   var token = localStorage.getItem(tokenString);
@@ -23,8 +23,8 @@ export const checkSession = () => {
   var expDateValue = decodedToken.exp;
   var tokenIsNotExpired = currentDateValue <= expDateValue;
   sessionObj.logged = tokenIsNotExpired;
-  sessionObj.email = tokenIsNotExpired ? decodedToken.email : '';
-  sessionObj.userRole = tokenIsNotExpired ? decodedToken.type : '';
+  sessionObj.email = tokenIsNotExpired ? decodedToken.email : emptyString;
+  sessionObj.userRole = tokenIsNotExpired ? decodedToken.type : emptyString;
 
   return sessionObj;
 };
@@ -32,7 +32,7 @@ export const checkSession = () => {
 export const getUserRole = () => {
   var token = localStorage.getItem(tokenString);
 
-  if (!token) return '';
+  if (!token) return emptyString;
 
   return jwt_decode(token).type;
 };
@@ -57,8 +57,8 @@ export const redirectLoggedUserToExpectedPage = (session, navigate) => {
 export const logout = (session, setSession, navigate) => {
   setSession({
     logged: false,
-    userRole: '',
-    email: ''
+    userRole: emptyString,
+    email: emptyString
   });
 
   localStorage.removeItem(tokenString);

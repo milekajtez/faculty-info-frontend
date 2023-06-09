@@ -1,3 +1,4 @@
+export const emptyString = '';
 export const loginString = 'login';
 export const registerString = 'register';
 export const tokenString = 'token';
@@ -16,3 +17,10 @@ export const LastNameString = 'Last name';
 export const FacultiesString = 'Faculties';
 export const FacultyAdminsString = 'Faculty Admins';
 export const LogOutString = 'Log out';
+export const AllFacultiesString = 'All faculities';
+export const CreateNewFacultyString = 'Create new faculity';
+export const IdString = 'Id';
+export const TinString = 'Tin';
+export const NameString = 'Name';
+export const DescritionString = 'Description';
+export const LocationString = 'Location';

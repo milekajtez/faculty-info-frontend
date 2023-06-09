@@ -1,3 +1,4 @@
+import { emptyString } from '../../../helpers/strings';
 import {
   invalidEmailAddress,
   passwordMustBeAtLeast8Chars,
@@ -9,7 +10,7 @@ import {
 
 export const validValue = () => ({
   isValid: true,
-  text: ''
+  text: emptyString
 });
 
 export const validatePassword = (value) => {
@@ -48,7 +49,7 @@ export const validateEmail = (value) => {
 };
 
 export const validateName = (value) => {
-  if (value === '')
+  if (value === emptyString)
     return {
       isValid: false,
       text: thisFieldIsRequired
