@@ -7,6 +7,7 @@ import { checkSession } from '../../helpers/sessionHelper';
 import { tokenString } from '../../helpers/strings';
 import { useNavigate } from 'react-router-dom';
 import { Options } from './Options';
+import iconImage from '../../images/faculty_icon.png';
 
 export function Navbar() {
   const [session, setSession] = useState(checkSession());
@@ -22,7 +23,7 @@ export function Navbar() {
   return (
     <>
       <NavBarWrapper>
-        <Logo />
+        <Logo iconImage={iconImage} logoWidth={60} logoHeight={60} />
         {session.logged ? <Options session={session} setSession={setSession} /> : null}
       </NavBarWrapper>
       <Routing session={session} setSession={setSession} />

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from '../../shared/Button/Button';
 import { H2 } from '../../shared/Headers/Headers.styled';
-import { Modal } from '../../shared/Modal/Modal';
+import { ModalComponent } from '../../shared/ModalComponent/ModalComponent';
 import { Table } from '../../shared/Table/Table';
-import { FaculitiesWrapper } from './Faculities.styled';
+import { FaculitiesWrapper } from './Faculties.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadAllFaculties } from '../../../redux/Faculty/facultyActions';
 import {
@@ -27,8 +27,12 @@ export function Faculties() {
     dispatch(loadAllFaculties());
   }, []);
 
-  const openModal = () => {
-    setModal(!modal);
+  const openModalHandler = () => {
+    setModal(true);
+  };
+
+  const closeModalHandler = () => {
+    setModal(false);
   };
 
   return (
@@ -39,8 +43,8 @@ export function Faculties() {
         items={allFaculties}
         type={TableTypes.ALL_FACULTIES}
       />
-      <Button type={submitString} text={CreateNewFacultyString} onClickMethod={openModal} />
-      {modal ? <Modal /> : <></>}
+      <Button type={submitString} text={CreateNewFacultyString} onClickMethod={openModalHandler} />
+      <ModalComponent isOpen={modal} closeModal={closeModalHandler} />
     </FaculitiesWrapper>
   );
 }
