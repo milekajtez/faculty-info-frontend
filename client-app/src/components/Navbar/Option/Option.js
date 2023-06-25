@@ -17,7 +17,7 @@ export function Option(props) {
         navigate(facultyAdminsPath);
         break;
       default:
-        logout(props.session, props.setSession, navigate);
+        logout(props.setSession, navigate);
     }
   };
 

@@ -54,7 +54,7 @@ export const redirectLoggedUserToExpectedPage = (session, navigate) => {
   }
 };
 
-export const logout = (session, setSession, navigate) => {
+export const logout = (setSession, navigate) => {
   setSession({
     logged: false,
     userRole: emptyString,
