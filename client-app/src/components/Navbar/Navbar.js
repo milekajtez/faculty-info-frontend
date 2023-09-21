@@ -23,7 +23,13 @@ export function Navbar() {
   return (
     <>
       <NavBarWrapper>
-        <Logo iconImage={iconImage} logoWidth={60} logoHeight={60} />
+        <Logo
+          title={'Faculty Info App'}
+          iconImage={iconImage}
+          logoWidth={60}
+          logoHeight={60}
+          onClickMethod={() => {}}
+        />
         {session.logged ? <Options session={session} setSession={setSession} /> : null}
       </NavBarWrapper>
       <Routing session={session} setSession={setSession} />

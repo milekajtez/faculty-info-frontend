@@ -1,11 +1,11 @@
 import React from 'react';
-import { InputElement } from './Input.styled';
+import { TextAreaElement } from './Input.styled';
 
-export function Input(props) {
+export function TextArea(props) {
   const { inputType, placeholder, onChangeMethod, isValid, value } = props;
 
   return (
-    <InputElement
+    <TextAreaElement
       type={inputType}
       placeholder={placeholder}
       onChange={(e) => {
@@ -13,6 +13,8 @@ export function Input(props) {
       }}
       isValid={isValid}
       value={value}
+      rows={8}
+      cols={40}
     />
   );
 }
