@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const InputElement = styled.input`
+const inputBaseStyles = `
   background-color: aliceblue;
   padding: 15px 32px;
   text-align: center;
@@ -12,8 +12,16 @@ export const InputElement = styled.input`
   -ms-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
-  -webkit-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+`;
+
+export const InputElement = styled.input`
+  ${inputBaseStyles}
+`;
+
+export const TextAreaElement = styled.textarea`
+  ${inputBaseStyles}
 `;
 
 export const InputMessageElement = styled.div`

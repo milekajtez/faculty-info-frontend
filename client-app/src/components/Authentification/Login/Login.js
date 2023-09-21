@@ -15,9 +15,10 @@ import { InputMessage } from '../../shared/Input/InputMessage';
 import { validateEmail, validatePassword } from '../../Validators/InputValidatior/InputValidator';
 import { toast } from 'react-toastify';
 import { plaseInsertValidCredentials } from '../../Validators/validatorMessages';
-import { loginInvalidCredentials, signIn } from './LoginMessages';
+import { loginInvalidCredentials } from './LoginMessages';
 import { useNavigate } from 'react-router-dom';
 import { checkSession, redirectLoggedUserToExpectedPage } from '../../../helpers/sessionHelper';
+import { signIn } from '../../shared/Button/ButtonMessages';
 
 export function Login(props) {
   const { setSession } = props;

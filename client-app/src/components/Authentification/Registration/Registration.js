@@ -20,7 +20,8 @@ import {
 } from '../../Validators/InputValidatior/InputValidator';
 import { toast } from 'react-toastify';
 import { plaseInsertValidCredentials } from '../../Validators/validatorMessages';
-import { registrationIsSuccessful, signUpAsAStudent } from './RegistrationMessages';
+import { registrationIsSuccessful } from './RegistrationMessages';
+import { signUp } from '../../shared/Button/ButtonMessages';
 
 export function Registration() {
   const [password, setPassword] = useState('');
@@ -92,7 +93,7 @@ export function Registration() {
         isValid={lastNameValidate.isValid}
       />
       <InputMessage text={lastNameValidate.text} />
-      <Button type={submitString} text={signUpAsAStudent} onClickMethod={register} />
+      <Button type={submitString} text={signUp} onClickMethod={register} />
     </>
   );
 }

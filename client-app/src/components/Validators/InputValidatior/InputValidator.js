@@ -1,11 +1,14 @@
 import { emptyString } from '../../../helpers/strings';
 import {
   invalidEmailAddress,
+  maxLengthValidatorMessage,
   passwordMustBeAtLeast8Chars,
   passwordMustContainLowercase,
   passwordMustContainOneNumber,
   passwordMustContainUppercase,
-  thisFieldIsRequired
+  thisFieldIsRequired,
+  tin10Digits,
+  tinMustBeNumber
 } from '../validatorMessages';
 
 export const validValue = () => ({
@@ -49,6 +52,71 @@ export const validateEmail = (value) => {
 };
 
 export const validateName = (value) => {
+  if (value === emptyString)
+    return {
+      isValid: false,
+      text: thisFieldIsRequired
+    };
+
+  return validValue();
+};
+
+export const validateFacultyTin = (value) => {
+  if (value === emptyString)
+    return {
+      isValid: false,
+      text: thisFieldIsRequired
+    };
+
+  if (value.length !== 10) {
+    return {
+      isValid: false,
+      text: tin10Digits
+    };
+  }
+
+  if (isNaN(value))
+    return {
+      isValid: false,
+      text: tinMustBeNumber
+    };
+
+  return validValue();
+};
+
+export const validateFacultyName = (value) => {
+  if (value === emptyString)
+    return {
+      isValid: false,
+      text: thisFieldIsRequired
+    };
+
+  if (value.length > 200)
+    return {
+      isValid: false,
+      text: maxLengthValidatorMessage(200)
+    };
+
+  return validValue();
+};
+
+export const validateFacultyDescription = (value) => {
+  if (value === emptyString)
+    return {
+      isValid: false,
+      text: thisFieldIsRequired
+    };
+
+  if (value.length > 500)
+    return {
+      isValid: false,
+      text: maxLengthValidatorMessage(500)
+    };
+
+  return validValue();
+};
+
+export const validateFacultyLocation = (value) => {
   if (value === emptyString)
     return {
       isValid: false,

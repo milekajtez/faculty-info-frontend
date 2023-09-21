@@ -7,6 +7,7 @@ import { FaculitiesWrapper } from './Faculties.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadAllFaculties } from '../../../redux/Faculty/facultyActions';
 import {
+  ActionsString,
   AllFacultiesString,
   CreateNewFacultyString,
   DescritionString,
@@ -17,6 +18,7 @@ import {
   submitString
 } from '../../../helpers/strings';
 import { TableTypes } from '../../shared/Table/tableTypes';
+import { ModalType } from '../../../enums/ModalType';
 
 export function Faculties() {
   const dispatch = useDispatch();
@@ -39,12 +41,16 @@ export function Faculties() {
     <FaculitiesWrapper>
       <H2>{AllFacultiesString}</H2>
       <Table
-        columns={[IdString, TinString, NameString, DescritionString, LocationString]}
+        columns={[IdString, TinString, NameString, DescritionString, LocationString, ActionsString]}
         items={allFaculties}
         type={TableTypes.ALL_FACULTIES}
       />
       <Button type={submitString} text={CreateNewFacultyString} onClickMethod={openModalHandler} />
-      <ModalComponent isOpen={modal} closeModal={closeModalHandler} />
+      <ModalComponent
+        isOpen={modal}
+        closeModal={closeModalHandler}
+        type={ModalType.CreateFaculty}
+      />
     </FaculitiesWrapper>
   );
 }

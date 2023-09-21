@@ -5,7 +5,7 @@ import { Registration } from '../Authentification/Registration/Registration';
 import { H2 } from '../shared/Headers/Headers.styled';
 import { loginString, registerString } from '../../helpers/strings';
 import { signUpAsAStudent } from './Registration/RegistrationMessages';
-import { signIn } from './Login/LoginMessages';
+import { signIn } from '../shared/Button/ButtonMessages';
 
 export function UserForm(props) {
   const [option, setOption] = useState(loginString);

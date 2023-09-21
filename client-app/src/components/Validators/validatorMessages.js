@@ -5,3 +5,7 @@ export const passwordMustContainUppercase = 'Password must contain at least one 
 export const passwordMustContainOneNumber = 'Password must contain at least one number';
 export const invalidEmailAddress = 'Invalid email address';
 export const plaseInsertValidCredentials = 'Please insert valid credentials';
+export const maxLengthValidatorMessage = (limit) => `Maximum number of characters: ${limit}`;
+export const tinMustBeNumber = 'Tin must be a number';
+export const tin10Digits = 'Tin must be 10 digit number';
+export const plaseInsertValidData = 'Please insert valid data';
