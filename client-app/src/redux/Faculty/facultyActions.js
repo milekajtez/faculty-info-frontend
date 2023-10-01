@@ -1,6 +1,6 @@
-import { LOAD_ALL_FACULTIES } from './facultyTypes';
+import { LOAD_ALL_FACULTIES, LOAD_ALL_FACULTY_ADMINS } from './facultyTypes';
 import API from '../../api';
-import { facultiesPath } from '../../helpers/requestPaths';
+import { facultiesPath, facultyAdminsPath } from '../../helpers/requestPaths';
 
 export const loadAllFacultiesAction = (faculties) => ({
   type: LOAD_ALL_FACULTIES,
@@ -46,6 +46,47 @@ export const deleteFaculty = (facultyId) => () =>
 export const editFaculty = (facultyId, faculty) => () =>
   new Promise(function (resolve, reject) {
     API.put(`${facultiesPath}/${facultyId}`, faculty)
+      .then((response) => {
+        resolve(response);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+
+export const loadAllFacultyAdminsAction = (facultyAdmins) => ({
+  type: LOAD_ALL_FACULTY_ADMINS,
+  payload: facultyAdmins
+});
+
+export const loadAllFacultyAdmins = () => {
+  return (dispatch) => {
+    API.get(`${facultyAdminsPath}`)
+      .then((response) => {
+        if (response.status === 200) {
+          dispatch(loadAllFacultyAdminsAction(response.data));
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+};
+
+export const createFacultyAdmin = (facultyAdmin) => () =>
+  new Promise(function (resolve, reject) {
+    API.post(facultyAdminsPath, facultyAdmin)
+      .then((response) => {
+        resolve(response);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+
+export const deleteFacultyAdmin = (facultyAdminId) => () =>
+  new Promise(function (resolve, reject) {
+    API.delete(`${facultyAdminsPath}/${facultyAdminId}`)
       .then((response) => {
         resolve(response);
       })

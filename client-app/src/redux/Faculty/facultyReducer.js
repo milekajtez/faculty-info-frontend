@@ -1,7 +1,8 @@
-import { LOAD_ALL_FACULTIES } from './facultyTypes';
+import { LOAD_ALL_FACULTIES, LOAD_ALL_FACULTY_ADMINS } from './facultyTypes';
 
 const initialState = {
-  allFaculties: []
+  allFaculties: [],
+  allFacultyAdmins: []
 };
 
 const facultyReducer = (state = initialState, action) => {
@@ -10,6 +11,12 @@ const facultyReducer = (state = initialState, action) => {
       return {
         ...state,
         allFaculties: action.payload
+      };
+    }
+    case LOAD_ALL_FACULTY_ADMINS: {
+      return {
+        ...state,
+        allFacultyAdmins: action.payload
       };
     }
     default:
