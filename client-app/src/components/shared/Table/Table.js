@@ -11,6 +11,7 @@ import {
 } from './Table.styled';
 import { FacultyTable } from '../../Faculty/Faculties/FacultyTable';
 import { TableTypes } from './tableTypes';
+import { FacultyAdminTable } from '../../Faculty/FacultyAdmins/FacultyAdminTable';
 
 export function Table(props) {
   const { columns, items, type } = props;
@@ -36,7 +37,11 @@ export function Table(props) {
       <TableContent>
         <TableComponent>
           <TableBody>
-            {type === TableTypes.ALL_FACULTIES ? <FacultyTable allFaculties={items} /> : null}
+            {type === TableTypes.ALL_FACULTIES ? (
+              <FacultyTable allFaculties={items} />
+            ) : type === TableTypes.ALL_FACULTY_ADMINS ? (
+              <FacultyAdminTable allFacultyAdmins={items} />
+            ) : null}
           </TableBody>
         </TableComponent>
       </TableContent>

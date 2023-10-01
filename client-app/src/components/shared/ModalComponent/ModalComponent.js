@@ -6,6 +6,7 @@ import { Logo } from '../../Navbar/Logo/Logo';
 import { ModalType } from '../../../enums/ModalType';
 import { CreateFaculty } from '../../Faculty/Faculties/CreateFaculty';
 import { EditFaculty } from '../../Faculty/Faculties/EditFaculty';
+import { CreateFacultyAdmin } from '../../Faculty/FacultyAdmins/CreateFacultyAdmin';
 
 Modal.setAppElement('#root');
 
@@ -17,6 +18,8 @@ export function ModalComponent(props) {
       <CreateFaculty closeModal={closeModal}></CreateFaculty>
     ) : type === ModalType.EditFaculty ? (
       <EditFaculty closeModal={closeModal} data={data}></EditFaculty>
+    ) : type === ModalType.CreateFacultyAdmin ? (
+      <CreateFacultyAdmin closeModal={closeModal}></CreateFacultyAdmin>
     ) : (
       <></>
     );
