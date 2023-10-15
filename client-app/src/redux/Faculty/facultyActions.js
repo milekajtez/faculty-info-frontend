@@ -1,6 +1,10 @@
 import { LOAD_ALL_FACULTIES, LOAD_ALL_FACULTY_ADMINS } from './facultyTypes';
 import API from '../../api';
-import { facultiesPath, facultyAdminsPath } from '../../helpers/requestPaths';
+import {
+  facultiesPath,
+  facultyAdminsPath,
+  registerFacultyAdminsPath
+} from '../../helpers/requestPaths';
 
 export const loadAllFacultiesAction = (faculties) => ({
   type: LOAD_ALL_FACULTIES,
@@ -75,7 +79,7 @@ export const loadAllFacultyAdmins = () => {
 
 export const createFacultyAdmin = (facultyAdmin) => () =>
   new Promise(function (resolve, reject) {
-    API.post(facultyAdminsPath, facultyAdmin)
+    API.post(registerFacultyAdminsPath, facultyAdmin)
       .then((response) => {
         resolve(response);
       })

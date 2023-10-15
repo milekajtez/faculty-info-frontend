@@ -125,3 +125,29 @@ export const validateFacultyLocation = (value) => {
 
   return validValue();
 };
+
+export const validateUsersFirstAndLastName = (value) => {
+  if (value === emptyString)
+    return {
+      isValid: false,
+      text: thisFieldIsRequired
+    };
+
+  if (value.length > 100)
+    return {
+      isValid: false,
+      text: maxLengthValidatorMessage(100)
+    };
+
+  return validValue();
+};
+
+export const validateFacultyId = (value) => {
+  if (value === emptyString)
+    return {
+      isValid: false,
+      text: thisFieldIsRequired
+    };
+
+  return validValue();
+};
